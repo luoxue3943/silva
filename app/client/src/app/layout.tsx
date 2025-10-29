@@ -1,18 +1,21 @@
 import localFont from "next/font/local";
+import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
 
 const ChillRoundF = localFont({
   src: "../../public/ChillRoundFBold.ttf",
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={ChillRoundF.className}>{children}</body>
+    <html suppressHydrationWarning>
+      <body className={ChillRoundF.className}>
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+      </body>
     </html>
   );
 }
