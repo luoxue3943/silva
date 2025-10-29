@@ -3,7 +3,16 @@ import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
 
 const ChillRoundF = localFont({
-  src: "../../public/ChillRoundFBold.ttf",
+  src: [
+    {
+      path: "../../public/ChillRoundFBold.ttf",
+      style: "bold",
+    },
+    {
+      path: "../../public/ChillRoundFRegular.ttf",
+      style: "regular",
+    },
+  ],
 });
 
 export default async function RootLayout({
